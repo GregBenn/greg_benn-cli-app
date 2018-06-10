@@ -1,5 +1,3 @@
-require "cat_finder/version"
-
-module CatFinder
-  # Your code goes here...
-end
+require_relative "./cat_finder/version"
+require_relative './cat_finder/cat'
+require_relative './cat_finder/cli'
