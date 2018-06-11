@@ -27,29 +27,28 @@ class CatFinder::CLI
     while input != "exit"
       puts "Type the number of the cat that you would like to see a description on, or list to list the cats again, or type exit."
       input = gets.strip.downcase
+      input_int = input.to_i
 
-      if input.to_i > 0
-        the_cat = @cats[input.to_i - 1]
-        puts "#{the_cat.name} - #{the_cat.type} - #{the_cat.age} - #{the_cat.gender}"
+      if input_int > 0 && input_int <= @cats.size
+        the_cat = @cats[input_int - 1]
+
+        # the_cat == instance of cat
+        # use a new method for a new drop, giving the user the ability to choose what they want to see about the cat.
+
+        cat_info(the_cat)
       elsif input == "list"
         list_cats
-      else
-        puts "Please type list or exit"
+      elsif input_int > @cats.size
+        puts "That is not a valid number"
       end
     end
   end
 
-  # def more_cats
-  #   puts "Would you to see more cats (y/n)"
-  #   input = gets.strip.downcase
-  #   if input == "y" || "yes"
-  #     list_cats
-  #   elsif input == "n" || "no" || "exit"
-  #     thank_you
-  #   # else
-  #   #   puts "Would you to see more cats (y/n)"
-  #   end
-  # end
+  def cat_info(cat)
+    #cat.url
+    #cat.display_info
+    puts "#{cat.name} - #{cat.type} - #{cat.age} - #{cat.gender}"
+  end
 
   def thank_you
     puts "Thank you for using Cat Finder.  See you next time!"
