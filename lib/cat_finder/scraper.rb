@@ -11,7 +11,7 @@ class CatFinder::Scraper
         type: c.css("div.list-animal-breed").text,
         age: c.css("div.list-animal-age").text,
         gender: c.css("div.list-animal-sexSN").text,)
-      binding.pry
+      # binding.pry
     end
   end
 end

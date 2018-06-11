@@ -15,9 +15,9 @@ class CatFinder::Cat
     @@all
   end
 
-  def cat_by_index(index)
-    @@all[index]
-  end
+  # def cat_by_index(index)
+  #   @@all[index]
+  # end
 
   # def self.today
   #   # Scrape petfinder.com and return cats based on that data

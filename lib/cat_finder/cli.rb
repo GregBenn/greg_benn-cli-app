@@ -4,16 +4,17 @@ class CatFinder::CLI
     CatFinder::Scraper.new.scrape_cats
     clear_page
     puts "Welcome to Cat Finder"
-    # list_cats
+    list_cats
     description
     thank_you
   end
 
   def list_cats
     puts "The following cats below are available for adoption:"
-    @cats = CatFinder::Cat.today
+    @cats = CatFinder::Cat.all
+
     @cats.each.with_index(1) do |cat, i|
-      puts "#{i}. #{cat.name} - #{cat.type} - #{cat.age} - #{cat.gender}"
+      puts "#{i}. #{cat.name}"
     end
   end
 
@@ -32,8 +33,8 @@ class CatFinder::CLI
         puts "#{the_cat.name} - #{the_cat.type} - #{the_cat.age} - #{the_cat.gender}"
       elsif input == "list"
         list_cats
-      # else
-      #   puts "Please type list or exit"
+      else
+        puts "Please type list or exit"
       end
     end
   end
