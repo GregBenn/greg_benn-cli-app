@@ -1,9 +1,10 @@
 class CatFinder::CLI
 
   def call
+    CatFinder::Scraper.new.scrape_cats
     clear_page
     puts "Welcome to Cat Finder"
-    list_cats
+    # list_cats
     description
     thank_you
   end
