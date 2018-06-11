@@ -1,11 +1,22 @@
 class CatFinder::Cat
   attr_accessor :name, :type, :age, :gender
 
+  @@all = []
+
   def initialize(name:, type:, age:, gender:)
     @name = name
     @type = type
     @age = age
     @gender = gender
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
+  def cat_by_index(index)
+    @@all[index]
   end
 
   # def self.today
@@ -59,6 +70,5 @@ class CatFinder::Cat
   #   doc = Nokogiri::HTML(open("https://www.petfinder.com/search/cats-for-adoption/?sort%5B0%5D=recently_added"))
   #   name = doc.search("div.petCard-overlay a.petCard-overlay-link").text
   # end
-
 
 end

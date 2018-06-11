@@ -6,12 +6,12 @@ class CatFinder::Scraper
 
   def scrape_cats
     get_page.css("div.list-animal-info-block").each do |c|
-
+      new_cat = CatFinder::Cat.new(
+        name: c.css("div.list-animal-name").text,
+        type: c.css("div.list-animal-breed").text,
+        age: c.css("div.list-animal-age").text,
+        gender: c.css("div.list-animal-sexSN").text,)
       binding.pry
     end
   end
 end
- div.list-animal-name #name
- div.list-animal-breed #type
- div.list-animal-age #age
- div.list-animal-sexSN #gender
